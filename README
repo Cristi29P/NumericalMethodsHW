@@ -1,0 +1,40 @@
+Part 1:
+	Probabilitati: Generez matricea sistemului de probabilitati observand regula si folosindu-ma de faptul ca pe pozitia vecinilor se afla -1.
+		       Un numar poate avea maxim 6 vecini, acestia aflandu-se intr-un format specific in jurul lui.
+	
+	Matrix_csr: Ma folosesc de regula de generare a celor 3 vectori si ii generez simultan la o singura trecere prin matrice.
+	
+	Jacobi_fact: Ma folosesc de formulele aferente factorizarii jacobi si aflu matricele de iteratie.
+	
+	Jacobi_sparse: Continui metoda jacobi folosindu-ma de matricele aflate mai sus si aflu o solutie aproximativa pentru sistemul de ecuatii.
+
+Part 2:
+	Clustering: Dupa ce partitionez punctele date ca parametru dupa cerinta in NC clustere, calculez centroizii. Dupa calcularea centroizilor initiali,
+		    reinitializez listele de puncte tinand cond de distantele fata de centroizii. Aplic aceasta metoda pana cand centroizii nu se mai modifica.
+	Clustering_cost: Calculez costul clustering-ului adunand distantele minime fata de centroizi.
+
+Part 3:
+	RGB_hist: Folosindu-ma de functia histc, fac o agregarea a pixelilor de diferite culori in bin-urile corespunzatoare pe baza vectorului edges, dupa care cumulez
+		  rezultatele si intorc vectorul solutie.
+	HSV_hist: Rationamentul este identic ca la RGB_hist.
+	RGB2HSV: Pe baza algoritmului dat in laborator, convertesc fiecare pixel din imaginea in format RGB pentru a crea aceeasi imagine in format HSV. Aceasta functie este
+		 utilizata in HSV_hist inainte de agregare.
+	Householder: Folosind pseudocodul din laborator, am implementat factorizarea Householder.
+	SST: Folosind pseudocodul din laborator, am implementat algoritmul de rezolvare a sistemelor care se afla in forma superior triunghiulara.
+	Preprocess: Parcurg in ordine fisierele din cats si not_cats, aplicand pe fiecare imagine din acestea functia RGB_hist sau HSV_hist si folosind vectorii solutie creez o matrice
+		    de caracteristici si un vector de etichete.
+	Learn: Folosesc alg Householder si SST pentru a "invata"/genera vectorul w, folosit in predictia imaginilor
+	Evaluate: Imi creez o matrice de caracteristici(similar ca la preprocess) ale imaginilor din folderul de test si imultesc la stanga cu vectorul w. Vectorul rezultat este parcurs 
+		  si se verifica numarul de rezultate pozitive/ negative care determina procenatul predictiei.
+
+Part 4:
+	Learn(folosind gradient descent): Imi generez un vectorul random w cu numere din interval (-1, 1) si folosind algoritmul gradient descent generez un vector similar cu cel de la partea 3,
+					  care va fi folosit pentru predictia imaginilor.	
+
+
+
+	
+
+
+
+
